@@ -1,0 +1,21 @@
+name: Build
+on:
+  push:
+jobs:
+  build-project:
+    name: Build Project
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4
+
+      - name: Perform Commit Linting
+        uses: wagoid/commitlint-github-action@v6
+
+      - name: Check Clang Formatting
+        uses: RafikFarhad/clang-format-github-action@v6
+        with:
+          sources: "src/**/*.h,src/**/*.cpp"
+
+      - name: Build Project
+        uses: threeal/cmake-action@v2
