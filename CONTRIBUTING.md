@@ -7,25 +7,11 @@ and procedural guidelines. Please ensure your contributions align with the follo
 
 ## 🛠 Engineering Standards
 
-### C++ Style Guidelines
-We adhere to a "good taste" philosophy. Beyond typical clean code practices, we enforce the following:
-
-* **RAII & Const-Correctness:** These are non-negotiable. Manage resources through object lifetime and ensure logical 
-  constancy across the API.
-* **Trailing Return Types:** All function declarations must use trailing return type syntax:
-    ```cpp
-    auto calculate_metrics(int value) -> double;
-    ```
-* **Exception Safety:** Mark all non-exception-throwing code paths as `noexcept`.
-* **Early Escapes:** Avoid deeply nested branches. Prefer `if (condition) return;` to keep the primary logic at a
-  shallow indentation level.
-* **Defensive Programming:** Write code that anticipates and handles invalid states or inputs gracefully.
-* **Consistency:** Above all, match the surrounding code. New contributions should seat naturally into the existing 
-  architecture.
-
 ### Tooling
-* **Formatting:** We use **Clang Format**. Before submitting, ensure your code matches the project's `.clang-format`
-  specification.
+* **Formatting:** We use **gofmt**. Before submitting, ensure your code is formatted:
+  ```bash
+  go fmt ./...
+  ```
 * **Originality:** We value the craft of programming. While Generative AI is a valid productivity tool, we expect you to
   understand and own the logic you submit.
 
